@@ -339,7 +339,7 @@ set -x
 date
 
 cd "${INSTALL_DIR}"
-get_from_nearest https://github.com/google/protobuf protobuf.tar.gz
+get_from_nearest https://ghproxy.com/https://github.com/KingsCooober/protobuf protobuf.tar.gz
 cd protobuf
 git checkout v3.6.1
 ./autogen.sh
@@ -368,10 +368,10 @@ date
 # From BUILDING.md of grpc source repository
 sudo apt-get --yes install build-essential autoconf libtool pkg-config
 
-get_from_nearest https://github.com/google/grpc.git grpc.tar.gz
+get_from_nearest https://ghproxy.com/https://github.com/KingsCooober/grpc.git grpc.tar.gz
 cd grpc
 # This version works fine with Ubuntu 16.04
-git checkout tags/v1.17.2
+#git checkout tags/v1.17.2
 git submodule update --init --recursive
 if [[ "${ubuntu_release}" > "19" ]]
 then
@@ -407,7 +407,7 @@ date
 # Deps needed to build PI:
 sudo apt-get --yes install libjudy-dev libreadline-dev valgrind libtool-bin libboost-dev libboost-system-dev libboost-thread-dev
 
-git clone https://github.com/p4lang/PI
+git clone https://github.com/KingsCooober/PI
 cd PI
 git submodule update --init --recursive
 git log -n 1
@@ -457,7 +457,7 @@ date
 # needed for experimental gNMI support.  That should all have been
 # done by this time, by the script above.
 
-get_from_nearest https://github.com/p4lang/behavioral-model.git behavioral-model.tar.gz
+get_from_nearest https://ghproxy.com/https://github.com/KingsCooober/behavioral-model.git behavioral-model.tar.gz
 cd behavioral-model
 # Get latest updates that are not in the repo cache version
 git pull
@@ -511,7 +511,7 @@ sudo pip3 install scapy ipaddr
 pip3 list
 
 # Clone p4c and its submodules:
-git clone --recursive https://github.com/p4lang/p4c.git
+git clone --recursive https://ghproxy.com/https://github.com/KingsCooober/p4c.git
 cd p4c
 git log -n 1
 mkdir build
@@ -540,7 +540,7 @@ echo "start install mininet:"
 set -x
 date
 
-git clone git://github.com/mininet/mininet mininet
+git clone https://ghproxy.com/git://github.com/mininet/mininet mininet
 sudo ./mininet/util/install.sh -nwv
 
 set +x
@@ -567,7 +567,7 @@ date
 # recommended using 1.17.1.  So far, it has worked well when doing
 # _basic_ P4Runtime API testing on a system on which this install
 # script was run.
-sudo pip install grpcio==1.17.1
+sudo pip install grpcio
 pip list
 
 # Installing the version of grpcio above does not automatically
